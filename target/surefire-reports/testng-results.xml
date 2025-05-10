@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-05-11T00:28:00 IST" name="smoke" finished-at="2025-05-11T00:28:15 IST" duration-ms="14907">
+    <groups>
+    </groups>
+    <test started-at="2025-05-11T00:28:00 IST" name="Nopackage" finished-at="2025-05-11T00:28:15 IST" duration-ms="14907">
+      <class name="test.TC_01">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:test.TC_01@4a94ee4]" started-at="2025-05-11T00:28:00 IST" name="setupReport" finished-at="2025-05-11T00:28:00 IST" duration-ms="255" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupReport -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:test.TC_01@4a94ee4]" started-at="2025-05-11T00:28:01 IST" name="setup" finished-at="2025-05-11T00:28:05 IST" duration-ms="3896" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:test.TC_01@4a94ee4]" started-at="2025-05-11T00:28:05 IST" name="login" data-provider="LoginData" finished-at="2025-05-11T00:28:06 IST" duration-ms="757" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[pass1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="teardown(org.testng.ITestResult)[pri:0, instance:test.TC_01@4a94ee4]" started-at="2025-05-11T00:28:06 IST" name="teardown" finished-at="2025-05-11T00:28:06 IST" duration-ms="232" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=login status=SUCCESS method=TC_01.login(java.lang.String,java.lang.String)[pri:0, instance:test.TC_01@4a94ee4] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:test.TC_01@4a94ee4]" started-at="2025-05-11T00:28:06 IST" name="setup" finished-at="2025-05-11T00:28:10 IST" duration-ms="3915" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:test.TC_01@4a94ee4]" started-at="2025-05-11T00:28:10 IST" name="login" data-provider="LoginData" finished-at="2025-05-11T00:28:10 IST" duration-ms="404" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[pass2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="teardown(org.testng.ITestResult)[pri:0, instance:test.TC_01@4a94ee4]" started-at="2025-05-11T00:28:10 IST" name="teardown" finished-at="2025-05-11T00:28:11 IST" duration-ms="187" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=login status=SUCCESS method=TC_01.login(java.lang.String,java.lang.String)[pri:0, instance:test.TC_01@4a94ee4] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:test.TC_01@4a94ee4]" started-at="2025-05-11T00:28:11 IST" name="setup" finished-at="2025-05-11T00:28:14 IST" duration-ms="3683" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:test.TC_01@4a94ee4]" started-at="2025-05-11T00:28:14 IST" name="login" data-provider="LoginData" finished-at="2025-05-11T00:28:15 IST" duration-ms="420" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin@yourstore.co]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="teardown(org.testng.ITestResult)[pri:0, instance:test.TC_01@4a94ee4]" started-at="2025-05-11T00:28:15 IST" name="teardown" finished-at="2025-05-11T00:28:15 IST" duration-ms="227" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=login status=SUCCESS method=TC_01.login(java.lang.String,java.lang.String)[pri:0, instance:test.TC_01@4a94ee4] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:test.TC_01@4a94ee4]" started-at="2025-05-11T00:28:15 IST" name="tearDownReport" finished-at="2025-05-11T00:28:15 IST" duration-ms="404" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownReport -->
+      </class> <!-- test.TC_01 -->
+    </test> <!-- Nopackage -->
+  </suite> <!-- smoke -->
+</testng-results>
