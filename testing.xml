@@ -3,8 +3,8 @@
 <suite name="smoke" verbose="1">
 	<test name="Nopackage">
 		<classes>
-			<class name="test.TC_01">
-			</class>
+			<class name="test.TC_01"/>
+			<class name="test.TC_02"/>
 		</classes>
 	</test>
 </suite>

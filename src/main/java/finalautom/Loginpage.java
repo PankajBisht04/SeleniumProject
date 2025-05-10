@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 public class Loginpage {
 	
 	private WebDriver driver;
-	private By usernamebox= By.id("Email");
-	private By passwordbox = By.id("Password");
-	private By loginbutton = By.xpath(("//*[@id=\"main\"]/div/div/div/div[2]/div[1]/div/form/div[3]/button"));
+	private By usernamebox= By.id("user-name");
+	protected By passwordbox = By.id("password");
+	private By loginbutton = By.xpath(("//*[@id=\"login-button\"]"));
 	
 	
 	public Loginpage(WebDriver driver) {
@@ -23,6 +23,9 @@ public class Loginpage {
 	public void enterPassword(String password) {
 		driver.findElement(passwordbox).clear();
 		driver.findElement(passwordbox).sendKeys(password);
+	}
+	public void clearPass() {
+		driver.findElement(passwordbox).clear();
 	}
 	public void clicklogin() {
 		driver.findElement(loginbutton).click();

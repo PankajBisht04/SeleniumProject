@@ -1,17 +1,23 @@
 package test;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.IOException;
 import base.base;
+
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import finalautom.Loginpage;
 import utils.ExcelUtils;
 import utils.ExtentReportManager;
 
+//LoginPageSuccessTest
+
 public class TC_01 extends base {
-	@DataProvider(name="LoginData")
+	@DataProvider(name = "LoginData")
 	public Object[][] getLoginData() throws IOException {
-		String filepath = System.getProperty("user.dir") + "/testdata/testdata.xlsx";
+		String filepath = System.getProperty("user.dir") + "/testdata/logindata.xlsx";
 		ExcelUtils.loadExcel(filepath, "Sheet1");
 		int rowcount = ExcelUtils.getRowCount();
 		Object[][] data = new Object[rowcount - 1][2];
@@ -25,16 +31,19 @@ public class TC_01 extends base {
 
 	@Test(dataProvider = "LoginData")
 	public void login(String username, String password) {
-		test = ExtentReportManager.createTest("Login Test"+username);
+		test = ExtentReportManager.createTest("Login Test: " + username);
+
+		// Login into website
 		Loginpage loginpage = new Loginpage(driver);
 
-		/*
-		 * loginpage.enterUsername("admin@yourstore.co");
-		 * loginpage.enterPassword("admin");
-		 */
 		loginpage.enterUsername(username);
 		loginpage.enterPassword(password);
-		System.out.println("Title is:" + driver.getTitle());
+		loginpage.clicklogin();
+		// check if login was successfull
+		String exp_Title = driver.getCurrentUrl();
+		String act_Title = "https://www.saucedemo.com/inventory.html";
+		Assert.assertEquals(act_Title, exp_Title);
+		// https://www.saucedemo.com/inventory.html
 		test.info("Pass");
 	}
 

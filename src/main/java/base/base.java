@@ -22,33 +22,37 @@ public class base {
 	protected WebDriver driver;
 	protected static ExtentReports extent;
 	protected ExtentTest test;
-	
+
 	@BeforeSuite
 	public void setupReport() {
 		extent = ExtentReportManager.getReportInstance();
 	}
+
 	@AfterSuite
-	public void tearDownReport(){
+	public void tearDownReport() {
 		extent.flush();
 	}
+
 	@BeforeMethod
-	public void setup(){
+	public void setup() {
 		Log.info("Starting Web Driver");
-			driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://admin-demo.nopcommerce.com/login");
+		driver.get("https://www.saucedemo.com/");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		} 
+	}
 
 	@AfterMethod(alwaysRun = true)
 	public void teardown(ITestResult result) {
-		
-		if(result.getStatus()==ITestResult.FAILURE) {
+
+		if (result.getStatus() == ITestResult.FAILURE) {
+			Log.info("Taking screenshot");
 			String ScreenshotPath = ExtentReportManager.captureScreenshot(driver, "login failure");
-			test.fail("Test Failed..",MediaEntityBuilder.createScreenCaptureFromPath(ScreenshotPath).build());
+			test.fail("Test Failed..", MediaEntityBuilder.createScreenCaptureFromPath(ScreenshotPath).build());
 		}
-		
+
 		if (driver != null) {
+			Log.info("Quitting Driver");
 			driver.quit();
 		}
 	}

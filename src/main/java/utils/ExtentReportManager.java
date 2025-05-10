@@ -16,34 +16,35 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 public class ExtentReportManager {
 	private static ExtentReports extent;
 	private static ExtentTest test;
-	
+
 	public static ExtentReports getReportInstance() {
-		if(extent==null) {
+		if (extent == null) {
 			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-			String reportPath = "reports/ExtentReport_"+timestamp+".html";
+			String reportPath = "reports/ExtentReport_" + timestamp + ".html";
 			ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
-			
-			reporter.config().setDocumentTitle("Automation Report");		
+
+			reporter.config().setDocumentTitle("Automation Report");
 			reporter.config().setReportName("Test report");
-			
+
 			extent = new ExtentReports();
 			extent.attachReporter(reporter);
-			}
+		}
 		return extent;
 	}
+
 	public static ExtentTest createTest(String testname) {
-		
+
 		test = getReportInstance().createTest(testname);
 		return test;
 	}
+
 	public static String captureScreenshot(WebDriver driver, String screenshotName) {
 		try {
-			File src =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			String path =System.getProperty("user.dir")+"screenshots/"+screenshotName+".png";
-			FileUtils.copyFile(src,new File(path));
+			File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			String path = System.getProperty("user.dir") + "screenshots/" + screenshotName + ".png";
+			FileUtils.copyFile(src, new File(path));
 			return path;
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
