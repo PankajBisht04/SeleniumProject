@@ -44,7 +44,6 @@ public class base {
 
 	@AfterMethod(alwaysRun = true)
 	public void teardown(ITestResult result) {
-
 		if (result.getStatus() == ITestResult.FAILURE) {
 			Log.info("Taking screenshot");
 			String ScreenshotPath = ExtentReportManager.captureScreenshot(driver, "login failure");

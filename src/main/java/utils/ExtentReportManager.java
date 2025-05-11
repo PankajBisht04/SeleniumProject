@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class ExtentReportManager {
@@ -41,12 +42,18 @@ public class ExtentReportManager {
 	public static String captureScreenshot(WebDriver driver, String screenshotName) {
 		try {
 			File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			String path = System.getProperty("user.dir") + "screenshots/" + screenshotName + ".png";
+			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmssSSS").format(new Date());
+			String path = System.getProperty("user.dir") + "/screenshots/" + screenshotName + "_" + timestamp + ".png";
 			FileUtils.copyFile(src, new File(path));
 			return path;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	public static void logStep(WebDriver driver, String stepDescription) {
+		Log.info("Taking screenshot");
+		String ScreenshotPath = ExtentReportManager.captureScreenshot(driver, "test pass");
+		test.pass("Step passed: "+stepDescription,MediaEntityBuilder.createScreenCaptureFromPath(ScreenshotPath).build());
 	}
 }

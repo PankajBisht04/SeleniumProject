@@ -6,13 +6,18 @@ import java.io.IOException;
 import base.base;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.MediaEntityBuilder;
+
 import finalautom.Loginpage;
 import utils.ExcelUtils;
 import utils.ExtentReportManager;
+import utils.Log;
 
 //LoginPageFailTest
 
@@ -40,34 +45,32 @@ public class TC_02 extends base {
 
 		// check if username was not entered
 		loginpage.clicklogin();
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		WebElement failBox = driver.findElement(By.xpath("//*[@id=\"login_button_container\"]/div/form/div[3]/h3"));
 		String actMsg = failBox.getText();
 		Assert.assertTrue(failBox.isDisplayed());
 		String fail_message = "Epic sadface: Username is required";
 		Assert.assertEquals(fail_message, actMsg);
-
+		ExtentReportManager.logStep(driver, "Epic sadface: Username is required");
 		// check if password was not entered
 		loginpage.enterUsername(username);
+
 		loginpage.clicklogin();
-		Thread.sleep(2000);
 		actMsg = failBox.getText();
 		Assert.assertTrue(failBox.isDisplayed());
 		fail_message = "Epic sadface: Password is required";
 		Assert.assertEquals(fail_message, actMsg);
-
+		ExtentReportManager.logStep(driver, "Epic sadface: Password is required");
 		// check if username and password was incorrect
+
 		loginpage.enterUsername("a");
 		loginpage.enterPassword("b");
 		loginpage.clicklogin();
-		Thread.sleep(2000);
 		actMsg = failBox.getText();
 		Assert.assertTrue(failBox.isDisplayed());
 		fail_message = "Epic sadface: Username and password do not match any user in this service";
 		Assert.assertEquals(fail_message, actMsg);
-
-		// https://www.saucedemo.com/inventory.html test.info("Pass");
-
+		ExtentReportManager.logStep(driver, "Epic sadface: Username and password do not match any user in this service");
+		
 	}
-
 }

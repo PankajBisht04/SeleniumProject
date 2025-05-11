@@ -37,8 +37,11 @@ public class TC_01 extends base {
 		Loginpage loginpage = new Loginpage(driver);
 
 		loginpage.enterUsername(username);
+		test.info("Login user");
 		loginpage.enterPassword(password);
+		test.info("Password");
 		loginpage.clicklogin();
+		test.info("click login");
 		// check if login was successfull
 		String exp_Title = driver.getCurrentUrl();
 		String act_Title = "https://www.saucedemo.com/inventory.html";
